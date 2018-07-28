@@ -1,0 +1,232 @@
+body {
+    font-size: 16px;
+    max-width: 1200px;
+    margin: 100px auto;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 3px #999;
+    position: relative;
+    overflow: hidden;
+}
+.content {
+}
+
+.left_list {
+    height: 100px;
+    margin-top: 10px;
+}
+
+.l_list {
+    background: #EEEEEE;
+    border-radius: 10px 0px 0px 10px;
+    padding-bottom: 20px;
+    /*display: none;*/
+}
+
+.r_list {
+    position: absolute;
+    right: 0px;
+    z-index: 6;
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.l_top {
+    width: 100%;
+    line-height: 40px;
+    border-bottom: 1px solid #D6D4D4;
+}
+
+.l_content:hover {
+    border: 1px solid #999;
+    border-radius: 10px;
+}
+
+.center_content {
+    width: 100%;
+    height: 80px;
+    padding: 10px 0px;
+    margin-top: 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.text {
+    padding-left: 10px;
+}
+
+.search_yiyuan {
+    width: 100%;
+    height: 410px;
+    display: block;
+}
+
+.input_row {
+    height: 130px;
+    position: relative;
+}
+
+.input_center {
+    margin-top: 60px;
+}
+
+._scroll {
+    height: 280px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.yiyuan_xiang {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    width: 95%;
+    height: 440px;
+    border-radius: 10px;
+    background: #ddd;
+    z-index: 10;
+    padding: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: none;
+}
+
+.span_float {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    border: 1px solid #999;
+    border-radius: 10px;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+}
+
+.yiyuan_style {
+    height: 100px;
+    padding: 0px 20px;
+    line-height: 100px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    clear: both;
+}
+
+.yiyuan_style:hover {
+    background: #f0f0f0;
+}
+
+.float {
+    float: left;
+}
+
+.style_list {
+    background: #fff;
+    border: 1px solid #999;
+    border-radius: 10px;
+}
+.clear_margin_yiyuan{
+    margin:10px 20px;
+}
+.clear_padding{
+    margin-top:20px;
+}
+@media screen and (max-width:768px) {
+    body{
+        font-size: 14px;
+        margin: 0px auto;
+
+    }
+    .show{
+        padding: 0px;
+    }
+    .l_top{
+        background: #ddd;
+        padding:0px;
+    }
+    .l_list{
+        position: absolute;
+        left:-210px;
+        width:200px;
+        z-index: 100;
+        border-radius:0px;
+        padding: 0px;
+        border-radius: 0px 10px 10px 0px;
+        box-shadow: 0px 0px 10px 5px #666;
+    }
+    .l_row{
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+    }
+    .input_row{
+        height:90px;
+        padding:0px 2px;
+    }
+    .input_center{
+        margin-top:20px;
+    }
+    .media_padding{
+        padding:0px 5px 0px 0px;
+    }
+    ._scroll{
+        min-height: 430px;
+        overflow: auto;
+    }
+    .clear_padding{
+        padding:0px;
+        margin-top:10px;
+    }
+    .clear_margin_yiyuan{
+        margin:10px 10px;
+    }
+    .yiyuan_style{
+        height:50px;
+        padding: 0px;
+        line-height: 50px;
+    }
+    .html_title{
+        padding:0px;
+    }
+    .yiyuan_xiang{
+        left:8px;
+    }
+    .img{
+        display: none;
+    }
+    .l_top {
+        width: 100%;
+        padding: 0px;
+        border-bottom: 1px solid #D6D4D4;
+    }
+    .left_list {
+        clear: both;
+        padding: 0px;
+        height: 50px;
+        margin-top: 0px;
+    }
+    .style_list{
+        background: #fff;
+        border: 1px solid #999;
+        border-radius: 0px; 
+    }
+    .center_content {
+        clear: both;
+        height:100%;
+        padding: 10px 0px;
+        margin-top: 0px;
+        border: 1px solid transparent;
+        cursor: pointer;
+    }
+    .padding_shumei{
+        padding: 0px;
+    }
+    .text_hide{
+        display: none;
+    }
+}

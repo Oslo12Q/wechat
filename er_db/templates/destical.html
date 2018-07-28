@@ -134,16 +134,16 @@
         alert (nm)
         $.ajax({
             url:'/qr_code/qr_code/',
-            method:'post',
+            method:'get',
             data:{'name':nm},
             dataType:'text',
             success:function(result){
                 var json_dict = $.parseJSON(result);
-                var uid = json_dict['im'];
-                alert(json_dict)
                 if(json_dict['ret_cd'] === 200){
-                    alert("提交成功！");
-                     
+                    var successResult = json_dict["successResult"];
+                    for(var i=0; i < successResult.length;i++){
+                        alert()
+                    }
                 }else{
                     window.location.href='/qr_code/err/';  
                 }

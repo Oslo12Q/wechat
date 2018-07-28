@@ -35,7 +35,7 @@ def oc_img(request):
         mob = Mob_User.objects.filter(id = id)
         if not mob:
             return get_json_response(request, dict(suc_id=0, ret_cd=104, ret_ts=long(time.time()),errorMsg = 'err',successResult='',im = ''))
-        img = qrcode.make("http://liuzhiqiang.top:8020/qr_code/destical/?qr_id="+id)
+        img = qrcode.make("http://liuzhiqiang.top:8020/qr_code/oslo/?qr_id="+id)
 
         buf = StringIO()
         img.save(buf)
@@ -94,35 +94,41 @@ def search_name(request):
 
 
 def qr_code(request):
-    arr_data = []
-    #if request.method != 'POST': # 必须POST 请求 负责返回 Method not allowed
-    #    return get_json_response(request, dict(suc_id=0, ret_cd=405, ret_ts=long(time.time()),errorMsg = 'Method not allowed',successResult='',im = ''))
+    try:
+        arr_data = []
+        #if request.method != 'POST': # 必须POST 请求 负责返回 Method not allowed
+        #    return get_json_response(request, dict(suc_id=0, ret_cd=405, ret_ts=long(time.time()),errorMsg = 'Method not allowed',successResult='',im = ''))
 
-    qr_id = request.GET.get('qr_id',None)
-    if not qr_id:
-        return get_json_response(request, dict(suc_id=0, ret_cd=104, ret_ts=long(time.time()),errorMsg = 'Please upload parameters name',successResult='',im = ''))
-    mob = Mob_User.objects.filter(id = qr_id)
-    if not mob:
-        return get_json_response(request, dict(suc_id=0, ret_cd=104, ret_ts=long(time.time()),errorMsg = 'err',successResult='',im = ''))
-    for i in mob:
-        name = i.name
-        sex = i.sex
-        date_of_birth = i.date_of_birth
-        certificate_no = i.certificate_no
-        id_card = i.id_card
-        professional_level = i.professional_level
-        results_1 = i.results_1
-        results_2 = i.results_2
-        assess = i.assess
-        date = i.date
-        unit = i.unit
-        unit_no = i.unit_no
-        arr_list = {
-            'name':name,'sex':sex,'date_of_birth':date_of_birth,'certificate_no':certificate_no,
-            'id_card':id_card,'professional_level':professional_level,'results_1':results_1,'results_2':results_2,
-            'assess':assess,'date':date,'unit':unit,'unit_no':unit_no
-        }
-        arr_data.append(arr_list)
-    
-    return get_json_response(request, dict(suc_id=1, ret_cd=200, ret_ts=long(time.time()),errorMsg = '',successResult=arr_data,im = ''))
+        qr_id = request.GET.get('qr_id',None)
+        if not qr_id:
+            return get_json_response(request, dict(suc_id=0, ret_cd=104, ret_ts=long(time.time()),errorMsg = 'Please upload parameters name',successResult='',im = ''))
+        mob = Mob_User.objects.filter(id = qr_id)
+        if not mob:
+            return get_json_response(request, dict(suc_id=0, ret_cd=104, ret_ts=long(time.time()),errorMsg = 'err',successResult='',im = ''))
+        for i in mob:
+            name = i.name
+            sex = i.sex
+            date_of_birth = i.date_of_birth
+            certificate_no = i.certificate_no
+            id_card = i.id_card
+            professional_level = i.professional_level
+            results_1 = i.results_1
+            results_2 = i.results_2
+            assess = i.assess
+            date = i.date
+            unit = i.unit
+            unit_no = i.unit_no
+            arr_list = {
+                'name':name,'sex':sex,'date_of_birth':date_of_birth,'certificate_no':certificate_no,
+                'id_card':id_card,'professional_level':professional_level,'results_1':results_1,'results_2':results_2,
+                'assess':assess,'date':date,'unit':unit,'unit_no':unit_no
+            }
+            arr_data.append(arr_list)
+        
+        return get_json_response(request, dict(suc_id=1, ret_cd=200, ret_ts=long(time.time()),errorMsg = '',successResult=arr_data,im = ''))
+    except Exception, err:
+        logging.error(err)
+        logging.error(traceback.format_exc())
+        return get_json_response(request, dict(suc_id=1, ret_cd=500, ret_ts=long(time.time()),errorMsg = 'err',successResult='',im = ''))
+
 

@@ -12,14 +12,13 @@ class Mob_User(models.Model):
     certificate_no = models.CharField('证书编号',max_length=255, blank=True, null=True)
     id_card = models.CharField('身份证号',max_length=255, blank=True, null=True)
     professional_level = models.CharField('职业（工种）及等级',max_length=255, blank=True, null=True)
-    results_1 = models.IntegerField('理论知识考试成绩',blank=True, null=True)
-    results_2 = models.IntegerField('操作技能考核成绩',blank=True, null=True)
+    results_1 = models.CharField('理论知识考试成绩',blank=True, null=True)
+    results_2 = models.CharField('操作技能考核成绩',blank=True, null=True)
     assess = models.CharField('评定成绩',max_length=255, blank=True, null=True)
     date = models.CharField('颁证日期',max_length=255, blank=True, null=True)
     unit = models.CharField('发证单位',max_length=255, blank=True, null=True)
     unit_no = models.CharField('证书流水码所属号段',max_length=255, blank=True, null=True)
     create_time = models.DateTimeField('创建时间')
-    update_time = models.DateTimeField('更新时间')
 
     def __unicode__(self):
     	return self.name

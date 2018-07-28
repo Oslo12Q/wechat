@@ -12,6 +12,7 @@ import json
 import time
 import datetime
 from .models import *
+from .qrcode import *
 
 '''
     # 搜索页面

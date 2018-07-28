@@ -100,6 +100,7 @@ def qr_code(request):
         #    return get_json_response(request, dict(suc_id=0, ret_cd=405, ret_ts=long(time.time()),errorMsg = 'Method not allowed',successResult='',im = ''))
 
         qr_id = request.GET.get('qr_id',None)
+        print qr_id
         if not qr_id:
             return get_json_response(request, dict(suc_id=0, ret_cd=104, ret_ts=long(time.time()),errorMsg = 'Please upload parameters name',successResult='',im = ''))
         mob = Mob_User.objects.filter(id = qr_id)

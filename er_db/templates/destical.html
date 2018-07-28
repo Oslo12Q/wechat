@@ -9,17 +9,7 @@
 <title>证书信息</title>
 
 <link href="/static/qr_code/css/awp.css" rel="stylesheet" type="text/css" media="screen" />
-<script type="text/javascript">
-        function CreateQRCode(element, data, w, h) {
-            var qrcode = new QRCode(element, {                
-                text: data,
-                width: w,
-                height: h,
-                colorLight: "rgba(0, 0, 0, 0)",
-                correctLevel: QRCode.CorrectLevel.L
-            });
-        }
-</script>
+
 </head>
 <body style="background-color:#daecf6;">
 <!----模板内容开始---->
@@ -131,11 +121,10 @@
             return decodeURIComponent(lot.replace(reg, "$1"));
         }
         var nm = getParam("qr_id");
-        alert (nm)
         $.ajax({
             url:'/qr_code/qr_code/',
             method:'get',
-            data:{'name':nm},
+            data:{'qr_id':nm},
             dataType:'text',
             success:function(result){
                 var json_dict = $.parseJSON(result);

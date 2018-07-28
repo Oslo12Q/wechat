@@ -12,7 +12,7 @@ import json
 import time
 import datetime
 from .models import *
-from .qrcode_oslo import *
+from .oslo import *
 
 '''
     # 搜索页面

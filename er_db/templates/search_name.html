@@ -72,7 +72,7 @@
                 dataType:'text',
                 success:function(result){
                     var json_dict = $.parseJSON(result);
-                    var uid = json_dict['uid'];
+                    var uid = json_dict['im'];
                     if(json_dict['ret_cd'] === 200){
                       alert("提交成功！");
                       window.location.href='/2/?uid='+uid;  

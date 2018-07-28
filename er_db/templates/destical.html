@@ -17,94 +17,51 @@
   <tr>
     <td width="200" align="right">姓名：</td>
     <td id="name" ></td>
-    
   </tr>
   <tr>
     <td align="right">性别：</td>
-    <td>女</td>
+    <td id="sex" ></td>
   </tr>
   <tr>
     <td align="right">出生日期：</td>
-	
-	
-	<td>1990 年 03 月 03 日 </td>
-	
+	<td id="date_of_birth"></td>
   </tr>
   <tr>
     <td align="right">证书编号：</td>
-    <td>1658000000323699</td>
+    <td id="certificate_no"></td>
   </tr>
   <tr>
     <td align="right">身份证号：</td>
-    <td>130929199003038461</td>
+    <td id="id_card"></td>
   </tr>
   <tr>
     <td align="right">职业（工种）及等级：</td>
-    <td>模具设计师三级  
-	</td>
+    <td id="professional_level"></td>
   </tr>
   <tr>
     <td align="right">理论知识考试成绩：</td>
-    <td>
-	77.0 
-	
-	
-	
-	
-	
-	</td>
+    <td id="results_1"></td>
   </tr>
   <tr>
     <td align="right">操作技能考核成绩：</td>
-    <td>
-	80.0 
-	
-	
-	
-	
-	
-	</td>
+    <td id="results_2"></td>
   </tr>
-  
-  
-  
   <tr>
     <td align="right">评定成绩：</td>
-    <td>合格</td>
+    <td id="assess"></td>
   </tr>
-  
   <tr>
     <td align="right">颁证日期：</td>
-    <td >2016-08-04</td>
+    <td id="date"></td>
   </tr>
   <tr>
     <td align="right">发证单位：</td>
-    <td>中国轻工业职业技能鉴定指导中心
-</td>
+    <td id="unit"></td>
+  </td>
   </tr>
   <tr>
     <td align="right">证书流水码所属号段：</td>
-    <td>
-			
-	
-			
-	
-			<span >
-			      <b>18024001</b> - <b>18034000 </b>
-			</span>
-			
-			
-			
-			
-	<br>		
-				
-			
-	
-			
-	   
-			
-	&nbsp;
-	</td>
+    <td id ='unit_no'></td>
   </tr>
 </table>
 
@@ -130,7 +87,18 @@
                     for(var i=0; i < successResult.length;i++){
                         var tmpResult = successResult[i];
                         $("#name").text(tmpResult["name"]);
-                        alert(tmpResult["name"])
+                        $("#sex").text(tmpResult["sex"]);
+                        $("#date_of_birth").text(tmpResult["date_of_birth"]);
+                        $("#certificate_no").text(tmpResult["certificate_no"]);
+                        $("#id_card").text(tmpResult["id_card"]);
+                        $("#professional_level").text(tmpResult["professional_level"]);
+                        $("#results_1").text(tmpResult["results_1"]);
+                        $("#results_2").text(tmpResult["results_2"]);
+                        $("#assess").text(tmpResult["assess"]);
+                        $("#date").text(tmpResult["date"]);
+                        $("#unit").text(tmpResult["unit"]);
+                        $("#unit_no").text(tmpResult["unit_no"]);
+
                     }
                 }else{
                     window.location.href='/qr_code/err/';  

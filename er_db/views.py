@@ -75,7 +75,6 @@ def search_name(request):
             return get_json_response(request, dict(suc_id=0, ret_cd=405, ret_ts=long(time.time()),errorMsg = 'Method not allowed',successResult='',im = ''))
 
         name = request.POST.get('name',None)    
-        print name
         if not name:  
             return get_json_response(request, dict(suc_id=0, ret_cd=104, ret_ts=long(time.time()),errorMsg = 'Please upload parameters name',successResult='',im = ''))
         
@@ -85,7 +84,6 @@ def search_name(request):
         
         for arr_mob in mob:
             id = arr_mob.id
-            print id    
         return get_json_response(request, dict(suc_id=1, ret_cd=200, ret_ts=long(time.time()),errorMsg = '',successResult='',im = id))
     except Exception, err:
         logging.error(err)
@@ -98,9 +96,8 @@ def qr_code(request):
         arr_data = []
         #if request.method != 'POST': # 必须POST 请求 负责返回 Method not allowed
         #    return get_json_response(request, dict(suc_id=0, ret_cd=405, ret_ts=long(time.time()),errorMsg = 'Method not allowed',successResult='',im = ''))
-
         qr_id = request.GET.get('qr_id',None)
-        print qr_id
+
         if not qr_id:
             return get_json_response(request, dict(suc_id=0, ret_cd=104, ret_ts=long(time.time()),errorMsg = 'Please upload parameters name',successResult='',im = ''))
         mob = Mob_User.objects.filter(id = qr_id)

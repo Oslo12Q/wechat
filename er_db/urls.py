@@ -11,5 +11,5 @@ urlpatterns = [
     url(r'^oslo/$',destical),
     url(r'^err/$',err_destical),
     url(r'^qr_code/$',qr_code),
-    url(r'^oc_img/$',ceshi),
+    url(r'^oc_img/$',oc_img),
 ]

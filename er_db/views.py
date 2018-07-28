@@ -26,6 +26,19 @@ def destical(request):
 def err_destical(request):
     return render(request,'err_destical.html')
 
+import qrcode
+from cStringIO import StringIO
+def ceshi(rewuest):
+    img = qrcode.make('12')
+ 
+    buf = StringIO()
+    img.save(buf)
+    image_stream = buf.getvalue()
+ 
+    response = HttpResponse(image_stream, content_type="image/png")
+    response['Last-Modified'] = 'Mon, 27 Apr 2015 02:05:03 GMT'
+    response['Cache-Control'] = 'max-age=31536000'
+    return response
 
 # json时间处理
 class DateEncoder(json.JSONEncoder):  

@@ -75,7 +75,7 @@
                     var uid = json_dict['im'];
                     if(json_dict['ret_cd'] === 200){
                       alert("提交成功！");
-                      window.location.href='/images/'+uid;  
+                      window.location.href='/qr_code/oc_img/?id='+uid;  
                     }else{
                       alert("提交失败！用户不存在");
                     }

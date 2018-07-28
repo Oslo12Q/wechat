@@ -12,7 +12,9 @@ import json
 import time
 import datetime
 from .models import *
-from .oslo import *
+import qrcode
+from cStringIO import StringIO
+
 
 '''
     # 搜索页面
@@ -26,11 +28,11 @@ def destical(request):
 def err_destical(request):
     return render(request,'err_destical.html')
 
-import qrcode
-from cStringIO import StringIO
-def ceshi(rewuest):
-    img = qrcode.make('12')
- 
+
+def oc_img(rewuest):
+    id = request.GET.get('id',None)
+    img = qrcode.make("http://liuzhiqiang.top/oslo/?qr_id="+id)
+
     buf = StringIO()
     img.save(buf)
     image_stream = buf.getvalue()
@@ -76,11 +78,8 @@ def search_name(request):
         
         for arr_mob in mob:
             id = arr_mob.id
-            print id
-
-        im_name = q_code(id)
-        
-        return get_json_response(request, dict(suc_id=1, ret_cd=200, ret_ts=long(time.time()),errorMsg = '',successResult='',im = im_name))
+            print id    
+        return get_json_response(request, dict(suc_id=1, ret_cd=200, ret_ts=long(time.time()),errorMsg = '',successResult='',im = id))
     except Exception, err:
         logging.error(err)
         logging.error(traceback.format_exc())

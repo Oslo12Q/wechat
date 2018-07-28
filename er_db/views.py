@@ -16,3 +16,8 @@ def index(request):
 
 def get_json_response(request, json_rsp):
     return HttpResponse(json.dumps(json_rsp), content_type='application/json')
+
+
+def search_name(request):
+    
+    pass

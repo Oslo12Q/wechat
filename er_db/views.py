@@ -29,9 +29,13 @@ def err_destical(request):
     return render(request,'err_destical.html')
 
 
-def oc_img(rewuest):
+def oc_img(request):
     try:
         id = request.GET.get('id',None)
+        mob = Mob_User.objects.filter(id = qr_id)
+        if not mob:
+            return get_json_response(request, dict(suc_id=0, ret_cd=104, ret_ts=long(time.time()),errorMsg = 'err',successResult='',im = ''))
+
         img = qrcode.make("http://liuzhiqiang.top/oslo/?qr_id="+id)
 
         buf = StringIO()

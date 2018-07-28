@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^search_name/$',search_name),
     url(r'^oslo/$',destical),
     url(r'^err/$',err_destical),
+    url(r'^qr_code/$',qr_code),
 ]

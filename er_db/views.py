@@ -42,6 +42,9 @@ def get_json_response(request, json_rsp):
     return HttpResponse(json.dumps(json_rsp,cls=DateEncoder), content_type='application/json')
 
 
+
+import traceback
+import logging
 # 搜索名字API POST  参数：name
 def search_name(request):
     try:
@@ -59,11 +62,14 @@ def search_name(request):
         
         for arr_mob in mob:
             id = arr_mob.id
+            print id
 
         im_name = q_code(id)
-    
+        
         return get_json_response(request, dict(suc_id=1, ret_cd=200, ret_ts=long(time.time()),errorMsg = '',successResult='',im = im_name))
     except Exception, err:
+        logging.error(err)
+        logging.error(traceback.format_exc())
         return get_json_response(request, dict(suc_id=1, ret_cd=500, ret_ts=long(time.time()),errorMsg = 'err',successResult='',im = ''))
 
 

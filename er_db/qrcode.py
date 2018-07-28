@@ -45,7 +45,7 @@ def q_code(id):
         img.paste(icon, (w, h), icon)
 
         image_name = '{}_{}_{}.jpg'.format(id,long(time.time()), random.randint(1000, 9999))
-        desc_path = '/images/+'image_name
+        desc_path = '/images/'+image_name
         img.save(desc_path)
         return image_name
     except Exception, err:

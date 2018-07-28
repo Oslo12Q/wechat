@@ -1,3 +1,9 @@
+#!/usr/bin/env Python
+# coding=utf-8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 from PIL import Image
 import qrcode
 import time

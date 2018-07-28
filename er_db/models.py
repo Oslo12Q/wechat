@@ -24,7 +24,7 @@ class Mob_User(models.Model):
     def __unicode__(self):
     	return self.name
     class Meta:
-        verbose_name = 'Mob_User''
+        verbose_name = 'Mob_User'
         verbose_name_plural='The user details'
 
     

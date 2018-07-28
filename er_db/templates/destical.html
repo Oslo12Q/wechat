@@ -20,7 +20,8 @@
   
   <tr>
     <td width="200" align="right">姓名：</td>
-    <td>肖帆帆 </td>
+    <td id="name" ></td>
+    
   </tr>
   <tr>
     <td align="right">性别：</td>
@@ -131,7 +132,8 @@
                 if(json_dict['ret_cd'] === 200){
                     var successResult = json_dict["successResult"];
                     for(var i=0; i < successResult.length;i++){
-                        alert()
+                        var tmpResult = successResult[i];
+                        $("#name").val(tmpResult["name"]);
                     }
                 }else{
                     window.location.href='/qr_code/err/';  

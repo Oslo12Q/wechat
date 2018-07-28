@@ -30,17 +30,21 @@ def err_destical(request):
 
 
 def oc_img(rewuest):
-    id = request.GET.get('id',None)
-    img = qrcode.make("http://liuzhiqiang.top/oslo/?qr_id="+id)
+    try:
+        id = request.GET.get('id',None)
+        img = qrcode.make("http://liuzhiqiang.top/oslo/?qr_id="+id)
 
-    buf = StringIO()
-    img.save(buf)
-    image_stream = buf.getvalue()
- 
-    response = HttpResponse(image_stream, content_type="image/png")
-    response['Last-Modified'] = 'Mon, 27 Apr 2015 02:05:03 GMT'
-    response['Cache-Control'] = 'max-age=31536000'
-    return response
+        buf = StringIO()
+        img.save(buf)
+        image_stream = buf.getvalue()
+    
+        response = HttpResponse(image_stream, content_type="image/png")
+        response['Last-Modified'] = 'Mon, 27 Apr 2015 02:05:03 GMT'
+        response['Cache-Control'] = 'max-age=31536000'
+        return response
+    except Exception, err:
+        logging.error(err)
+        logging.error(traceback.format_exc())
 
 # json时间处理
 class DateEncoder(json.JSONEncoder):  

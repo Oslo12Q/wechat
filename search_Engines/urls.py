@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 from .views import *
 
 urlpatterns = [
-    #url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^dev/', include('web_service.urls')),
     url(r'^weixin/',include('weixin.urls')),
     url(R'^qr_code',include('er_db.urls')),
@@ -31,8 +31,9 @@ urlpatterns = [
     url(r'^$',xln,name='xln'),
     url(r'^love/$',love,name = 'love'),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+#urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 if settings.DEBUG is False:
     urlpatterns += [
         url(r'^static/(?P<path>.*)$', 'django.views.static.serve', { 'document_root': settings.STATIC_ROOT}),
+        url(r'^images/(?P<path>.*)$','django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
     ]

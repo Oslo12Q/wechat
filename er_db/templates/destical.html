@@ -122,7 +122,37 @@
 </table>
 
 
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var getParam = function(key){
+        var lot = location.search;
+        var reg = new RegExp(".*" + key + "\\s*=([^=&#]*)(?=&|#|).*","g");
+            return decodeURIComponent(lot.replace(reg, "$1"));
+        }
+        var nm = getParam("qr_id");
+        alert (nm)
+        $.ajax({
+            url:'/qr_code/qr_code/',
+            method:'post',
+            data:{'name':nm},
+            dataType:'text',
+            success:function(result){
+                var json_dict = $.parseJSON(result);
+                var uid = json_dict['im'];
+                if(json_dict['ret_cd'] === 200){
+                    alert("提交成功！");
+                     
+                }else{
+                    window.location.href='/qr_code/err/';  
+                }
+            }
+        });
 
+    });
+</script>
+</body>
+</html>
 
 <!----模板内容结束---->
 </body>

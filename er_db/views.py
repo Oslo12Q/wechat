@@ -35,7 +35,7 @@ def oc_img(request):
         mob = Mob_User.objects.filter(id = id)
         if not mob:
             return get_json_response(request, dict(suc_id=0, ret_cd=104, ret_ts=long(time.time()),errorMsg = 'err',successResult='',im = ''))
-        img = qrcode.make("http://liuzhiqiang.top:8020/qr_code/qr_code/?qr_id="+id)
+        img = qrcode.make("http://liuzhiqiang.top:8020/qr_code/destical/?qr_id="+id)
 
         buf = StringIO()
         img.save(buf)
@@ -95,7 +95,10 @@ def search_name(request):
 
 def qr_code(request):
     arr_data = []
-    qr_id = request.GET.get('qr_id',None)
+    if request.method != 'POST': # 必须POST 请求 负责返回 Method not allowed
+        return get_json_response(request, dict(suc_id=0, ret_cd=405, ret_ts=long(time.time()),errorMsg = 'Method not allowed',successResult='',im = ''))
+
+    qr_id = request.POST.get('qr_id',None)
     if not qr_id:
         return get_json_response(request, dict(suc_id=0, ret_cd=104, ret_ts=long(time.time()),errorMsg = 'Please upload parameters name',successResult='',im = ''))
     mob = Mob_User.objects.filter(id = qr_id)

@@ -35,7 +35,7 @@ def oc_img(request):
         mob = Mob_User.objects.filter(id = id)
         if not mob:
             return get_json_response(request, dict(suc_id=0, ret_cd=104, ret_ts=long(time.time()),errorMsg = 'err',successResult='',im = ''))
-        img = qrcode.make("http://104.225.232.54:9999/qr_code/oslo/?qr_id="+id)
+        img = qrcode.make("http:qgsowin.com/qr_code/oslo/?qr_id="+id)
 
         buf = StringIO()
         img.save(buf)

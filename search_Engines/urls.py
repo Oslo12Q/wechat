@@ -23,7 +23,8 @@ from .views import *
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(R'^qr_code/',include('er_db.urls')),
+    url(r'^qr_code/',include('er_db.urls')),
+    url(r'^/',oslo),
 ]
 #urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 if settings.DEBUG is False:

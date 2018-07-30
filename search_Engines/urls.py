@@ -23,13 +23,7 @@ from .views import *
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^dev/', include('web_service.urls')),
-    url(r'^weixin/',include('weixin.urls')),
     url(R'^qr_code/',include('er_db.urls')),
-    url(r'^MP_verify_PNyE15nlc1gky07l.txt',mp_verify, name='mp_verify'),
-    url(r'^oslo/$',oslo,name = 'oslo'),
-    url(r'^$',xln,name='xln'),
-    url(r'^love/$',love,name = 'love'),
 ]
 #urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 if settings.DEBUG is False:

@@ -13,6 +13,6 @@ class The_UserAdmin(admin.ModelAdmin):
     #list_filter = ('is_custom',)
     #list_editable = ['name', 'tel_no']
 
-admin.site.site_header = 'liuzhiqiang.top'
+admin.site.site_header = 'qgsowin.com'
 admin.site.site_title = 'Oslo'
 admin.site.register(Mob_User,The_UserAdmin)

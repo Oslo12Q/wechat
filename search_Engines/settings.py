@@ -38,8 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'web_service',
-    'weixin',
+
     'er_db',
 )
 
@@ -90,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'medical_basic',
         'USER': 'root',
-        'PASSWORD': 'nicaicai',
+        'PASSWORD': 'A06EpaTrvv',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
